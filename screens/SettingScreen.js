@@ -24,7 +24,7 @@ export default class SettingScreen extends React.Component{
         var email = firebase.auth().currentUser.email
         db.collection("users").where("email_id","==",email).get().then((snapshot)=>{snapshot.forEach(doc=>{
             var data = doc.data()
-           
+           alert(data.first_name)
             this.setState({
                
                 email:data.email_id,
@@ -35,7 +35,7 @@ export default class SettingScreen extends React.Component{
                 docId:doc.id
             })
         })})
-    // alert(this.state.email)
+   // alert(email)
     }
 
     updateUserDetails=()=>{

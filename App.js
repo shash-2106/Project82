@@ -9,8 +9,8 @@ import {createAppContainer,createSwitchNavigator} from 'react-navigation';
 import {createDrawerNavigator} from 'react-navigation-drawer'
 import SettingScreen from './screens/SettingScreen'
 import CustomSideBarMenu from './Component/CustomSideBarMenu';
-
-
+import {TabNavigator} from './Component/AppTabNavigator';
+import {AppDrawerNavigator} from './Component/AppDrawerNavigator'
 
 export default class App extends React.Component {
   render(){
@@ -22,30 +22,8 @@ export default class App extends React.Component {
   );
 }
 }
-const TabNavigator = createBottomTabNavigator({
-  Donate:{screen:DonorScreen},
-  Volunteer:{screen:VolunteerScreen}
-},
-{
-  defaultNavigationOptions:({navigation})=>({
-    tabBarIcon:()=>{
-      const routeName = navigation.state.routeName
-      if(routeName=="Donate"){
-        return(<Image source={require("./assets/donate.png")} style={{width:40,height:40}}></Image>)
-      }
-      else if(routeName=="Volunteer"){
-        return(<Image source={require("./assets/volunteer.png")} style={{width:40,height:40}}></Image>)
-      }
-    }
-  })
-})
-const AppDrawerNavigator = createDrawerNavigator({
-Home:{screen:TabNavigator},
-Settings:{screen:SettingScreen}
-},
-{contentComponent:CustomSideBarMenu},
-{initialRouteName:'Home'}
-)
+
+
 const SwitchNavigator = createSwitchNavigator({SignupLogin:{screen:SignupLogin},DrawerTab:{screen:AppDrawerNavigator}})
 const AppContainer = createAppContainer(SwitchNavigator)
 const styles = StyleSheet.create({

@@ -10,11 +10,11 @@ export default class CustomSideBarMenu extends React.Component{
         return(
             <View style={{flez:1}}>
                 <DrawerItems {...this.props}></DrawerItems>
-                <View style={{flex:1,justifyContent:'flex-end',paddingBottom:30}}>
-                    <TouchableOpacity style={{justifyContent:'center',padding:10,height:30,width:'100%'}}
+                <View style={styles.logOutContainer}>
+                    <TouchableOpacity style={styles.logOutButton}
                     onPress={()=>{this.props.navigation.navigate('SignupLoginScreen')
                     firebase.auth().signOut()}}>
-                        <Text>Log Out</Text>
+                        <Text style={styles.logOutText}>Log Out</Text>
                     </TouchableOpacity>
                     
                 </View>
@@ -22,3 +22,8 @@ export default class CustomSideBarMenu extends React.Component{
         )
     }
 }
+const styles = StyleSheet({
+    logOutContainer : { flex:0.2, justifyContent:'flex-end', paddingBottom:30 },
+    logOutButton : { height:30, width:'100%', justifyContent:'center', padding:10 },
+    logOutText:{ fontSize: 30, fontWeight:'bold' }
+})
