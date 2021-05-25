@@ -47,8 +47,8 @@ db.collection("my_barters").add({
 }
     render(){
         return(
-            <View style={styles.container}>
-             <View style={styles.buttonContainer}>
+            <View>
+             <View>
                  <Header leftComponent={<Icon name="arrow_left" type="feather" color="black" onPress={()=>{this.props.navigation.goBack()}}/>}
                  centerComponent={{text:"Volunteer to Receive"}} backgroundColor="grey"/>
              </View>
@@ -67,7 +67,7 @@ db.collection("my_barters").add({
              </View>
              <View>
                  {this.state.donorId!=this.state.userId?(
-                     <TouchableOpacity style={styles.button} onPress={()=>{this.addBarters()
+                     <TouchableOpacity onPress={()=>{this.addBarters()
                     this.props.navigation.navigate("MyBarters")}}>
                         <Text>I want to volunteer to receive</Text>
                     </TouchableOpacity>
@@ -78,28 +78,3 @@ db.collection("my_barters").add({
     }
 
 }
-const styles= StyleSheet.create({
-    container: { 
-        flex:1, 
-    }, 
-    buttonContainer : { 
-        flex:0.3, 
-        justifyContent:'center', 
-        alignItems:'center' 
-    }, 
-        button:{
-            width:"90%",
-        height:40,
-        justifyContent:'center',
-        alignItems:'center',
-        borderRadius:10,
-        margin:10,
-        padding:10,
-        backgroundColor:"#bfebff",
-        shadowColor: "#000",
-        shadowOffset: {
-           width: 0,
-           height: 8,
-        }
-    }
-})
