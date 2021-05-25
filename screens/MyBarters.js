@@ -42,7 +42,7 @@ export default class MyBarters extends React.Component{
         leftElement={<Icon name="book" type="font-awesome" color='black'></Icon>}
         titleStyle={{color:'black',fontWeight:'bold'}}
         rightElement={
-            <TouchableOpacity style={styles.button}>
+            <TouchableOpacity>
                 <Text>Exchange</Text>
             </TouchableOpacity>
         }
@@ -72,20 +72,3 @@ export default class MyBarters extends React.Component{
         )
     }
 }
-const styles = StyleSheet.create({
-    button:{
-        width:"90%",
-    height:40,
-    justifyContent:'center',
-    alignItems:'center',
-    borderRadius:10,
-    margin:10,
-    padding:10,
-    backgroundColor:"#bfebff",
-    shadowColor: "#000",
-    shadowOffset: {
-       width: 0,
-       height: 8,
-    }
-}
-})
